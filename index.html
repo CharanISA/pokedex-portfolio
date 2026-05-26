@@ -456,11 +456,16 @@
 
     .dex-btn:hover,
     .dex-btn.active {
-      transform: translateY(4px);
-      box-shadow: 0 2px 0 rgba(0,0,0,0.38);
-      background: var(--yellow);
-      color: #111827;
-    }
+  transform: translateY(4px);
+
+  box-shadow:
+    0 2px 0 rgba(0,0,0,0.38),
+    0 0 12px rgba(250, 204, 21, 0.75),
+    0 0 24px rgba(250, 204, 21, 0.45);
+
+  background: var(--yellow);
+  color: #111827;
+}
 
     .dex-btn:active {
       transform: translateY(6px) scale(0.96);
