@@ -59,8 +59,7 @@
       overflow: hidden;
       position: relative;
 
-      transform-origin: left center;
-      animation: pokedexOpen 1.1s ease-out forwards;
+      animation: dexBoot 1.2s ease-out forwards;
     }
 
     .pokedex::before {
@@ -166,6 +165,8 @@
       grid-template-rows: auto 1fr auto;
       overflow: hidden;
       position: relative;
+
+      animation: profileReveal 1.5s ease-out forwards;
     }
 
     .profile-screen::after {
@@ -176,7 +177,7 @@
       width: 100%;
       height: 20%;
       background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.45), transparent);
-      animation: scan 3.5s infinite linear;
+      animation: scan 5s infinite linear;
       pointer-events: none;
     }
 
@@ -185,20 +186,34 @@
       to { transform: translateY(750%); }
     }
 
-    @keyframes pokedexOpen {
-  0% {
+    @keyframes profileReveal {
+  from {
     opacity: 0;
-    transform: perspective(1200px) rotateY(-75deg) scale(0.92);
+    transform: translateY(15px);
   }
 
-  60% {
+  to {
     opacity: 1;
-    transform: perspective(1200px) rotateY(8deg) scale(1);
+    transform: translateY(0);
+  }
+}
+
+    @keyframes dexBoot {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: brightness(0.5);
+  }
+
+  40% {
+    opacity: 1;
+    filter: brightness(1.25);
   }
 
   100% {
     opacity: 1;
-    transform: perspective(1200px) rotateY(0deg) scale(1);
+    transform: scale(1);
+    filter: brightness(1);
   }
 }
 
@@ -211,6 +226,25 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes screenBoot {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.05);
+    filter: brightness(3);
+  }
+
+  35% {
+    opacity: 1;
+    filter: brightness(2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+    filter: brightness(1);
   }
 }
 
@@ -321,7 +355,7 @@
       overflow: hidden;
       box-shadow: inset 0 0 28px rgba(0,0,0,0.45);
 
-      animation: screenGlow 2.5s ease-in-out infinite;
+      animation: screenBoot 1.4s ease-out forwards;
     }
 
     .screen-header {
@@ -627,7 +661,6 @@
       </div>
     </section>
 
-    <div class="footer-note">Tip: Use buttons or keyboard keys 1–4</div>
   </main>
 
   <script>
@@ -637,16 +670,30 @@
         status: 'ENTRY DATA',
         html: `
           <p>
-            An aspiring Software Developer with multiple interests. Skilled in IT, UI/UX, Project Management,
-            and Data Analyst.
+            Aspiring Software Developer with experience in software engineering, UI/UX design, AI 
+            applications, and data analytics. Passionate about creating intuitive user experiences, 
+            developing intelligent solutions, and leading projects that transform ideas into meaningful 
+            products.
           </p>
           <div class="stats">
-            <div class="stat"><span>HTML/CSS</span><div class="bar"><div class="fill" data-width="85%"></div></div><strong>85</strong></div>
-            <div class="stat"><span>UI/UX</span><div class="bar"><div class="fill" data-width="80%"></div></div><strong>85</strong></div>
-            <div class="stat"><span>Python</span><div class="bar"><div class="fill" data-width="95%"></div></div><strong>80</strong></div>
-            <div class="stat"><span>SQL</span><div class="bar"><div class="fill" data-width="70%"></div></div><strong>78</strong></div>
-            <div class="stat"><span>GitHub</span><div class="bar"><div class="fill" data-width="75%"></div></div><strong>70</strong></div>
-            <div class="stat"><span>Learning</span><div class="bar"><div class="fill" data-width="100%"></div></div><strong>100</strong></div>
+            <div class="stat"><span>HTML/CSS</span><div class="bar"><div class="fill" 
+              data-width="85%"></div></div><strong>85</strong>
+              </div>
+            <div class="stat"><span>UI/UX</span><div class="bar"><div class="fill" 
+              data-width="80%"></div></div><strong>85</strong>
+              </div>
+            <div class="stat"><span>Python</span><div class="bar"><div class="fill" 
+              data-width="95%"></div></div><strong>80</strong>
+              </div>
+            <div class="stat"><span>SQL</span><div class="bar"><div class="fill" 
+              data-width="70%"></div></div><strong>78</strong>
+              </div>
+            <div class="stat"><span>GitHub</span><div class="bar"><div class="fill" 
+              data-width="75%"></div></div><strong>70</strong>
+              </div>
+            <div class="stat"><span>Learning</span><div class="bar"><div class="fill" 
+              data-width="100%"></div></div><strong>100</strong>
+              </div>
           </div>
         `
       },
