@@ -397,6 +397,35 @@
       margin-bottom: 1rem;
     }
 
+    .trainer-data {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .trainer-row {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 0.8rem;
+    }
+
+    .trainer-label {
+      display: block;
+      color: #38bdf8;
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+
+    .trainer-value {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
     .stats {
       display: grid;
       gap: 0.75rem;
@@ -672,33 +701,47 @@
         title: 'Profile',
         status: 'ENTRY DATA',
         html: `
-          <p>
-            Aspiring Software Developer with experience in software engineering, UI/UX design, AI 
-            applications, and data analytics. Passionate about creating intuitive user experiences, 
-            developing intelligent solutions, and leading projects that transform ideas into meaningful 
-            products.
-          </p>
-          <div class="stats">
-            <div class="stat"><span>HTML/CSS</span><div class="bar"><div class="fill" 
-              data-width="85%"></div></div><strong>85</strong>
-              </div>
-            <div class="stat"><span>UI/UX</span><div class="bar"><div class="fill" 
-              data-width="80%"></div></div><strong>85</strong>
-              </div>
-            <div class="stat"><span>Python</span><div class="bar"><div class="fill" 
-              data-width="95%"></div></div><strong>80</strong>
-              </div>
-            <div class="stat"><span>SQL</span><div class="bar"><div class="fill" 
-              data-width="70%"></div></div><strong>78</strong>
-              </div>
-            <div class="stat"><span>GitHub</span><div class="bar"><div class="fill" 
-              data-width="75%"></div></div><strong>70</strong>
-              </div>
-            <div class="stat"><span>Learning</span><div class="bar"><div class="fill" 
-              data-width="100%"></div></div><strong>100</strong>
-              </div>
-          </div>
-        `
+  <p>
+    Aspiring Software Developer with experience in software engineering,
+    UI/UX design, AI applications, and data analytics. Passionate about
+    creating intuitive user experiences, developing intelligent solutions,
+    and leading projects that transform ideas into meaningful products.
+  </p>
+
+  <div class="trainer-data">
+
+    <div class="trainer-row">
+      <span class="trainer-label">Region</span>
+      <span class="trainer-value">Houston, TX</span>
+    </div>
+
+    <div class="trainer-row">
+      <span class="trainer-label">Trainer Class</span>
+      <span class="trainer-value">Full Stack Developer</span>
+    </div>
+
+    <div class="trainer-row">
+      <span class="trainer-label">Specialties</span>
+      <span class="trainer-value">
+        AI Applications<br>
+        UI/UX Design<br>
+        Data Analytics<br>
+        Project Management
+      </span>
+    </div>
+
+    <div class="trainer-row">
+      <span class="trainer-label">Current Quest</span>
+      <span class="trainer-value">
+        Building software solutions that combine
+        user-centered design, AI, and data-driven insights.
+      </span>
+    </div>
+
+  </div>
+`
+        
+
       },
       skills: {
         title: 'Skills',
