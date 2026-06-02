@@ -352,7 +352,8 @@
       border-radius: 22px;
       padding: 1.15rem;
       min-height: 0;
-      overflow: hidden;
+      overflow-y: auto;
+      padding-right: 0.75rem;
       box-shadow: inset 0 0 28px rgba(0,0,0,0.45);
 
       animation: screenBoot 1.4s ease-out forwards;
@@ -549,7 +550,7 @@
 
     .button-pad {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 0.75rem;
     }
 
@@ -693,6 +694,36 @@
   font-size: 0.9rem;
 }
 
+.skill-category {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+.skill-category h4 {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.skill-chips span {
+  background: #bae6fd;
+  color: #0f172a;
+  font-weight: 900;
+  font-size: 0.72rem;
+  padding: 0.32rem 0.55rem;
+  border-radius: 999px;
+}
+
+
   @media (max-width: 850px) {
       body {
         overflow: auto;
@@ -770,6 +801,7 @@
           <button class="dex-btn" data-section="skills">Skills</button>
           <button class="dex-btn" data-section="projects">Projects</button>
           <button class="dex-btn" data-section="contact">Contact</button>
+          <button class="dex-btn" onclick="window.open('resume.pdf', '_blank')">Resume</button>
         </div>
       </div>
     </section>
@@ -804,10 +836,12 @@
     <div class="trainer-row">
       <span class="trainer-label">Specialties</span>
       <span class="trainer-value">
-        AI Applications<br>
-        UI/UX Design<br>
-        Data Analytics<br>
-        Project Management
+<div class="specialty-tags">
+  <span class="tag">AI</span>
+  <span class="tag">UI/UX</span>
+  <span class="tag">Data</span>
+  <span class="tag">PM</span>
+</div>
       </span>
     </div>
 
@@ -821,45 +855,63 @@
 
   </div>
 `
-        
+ },
 
-      },
-      skills: {
-        title: 'Skills',
-        status: 'ABILITY LIST',
-        html: `
-          <div class="grid-cards">
-            <div class="card">
-              <h4>Frontend</h4>
-              <p>HTML, CSS, JavaScript</p>
-            </div>
-            <div class="card">
-              <h4>Langauges</h4>
-              <p>Python, Java, C++, VHDL</p>
-            </div>
-            <div class="card">
-              <h4>Database</h4>
-              <p>SQL, MongoDB, schema design, queries</p>
-            </div>
-            <div class="card">
-              <h4>Tools / Platforms</h4>
-              <p>GitHub, VS Code, Apache, Fedora Linux, Oracle VirtualBox</p>
-            </div>
-            <div class="card">
-              <h4>Hardware</h4>
-              <p>Multisim</p>
-            </div>
-            <div class="card">
-              <h4>Cyber Security / Digital Forensics</h4>
-              <p>Autopsy</p>
-            </div>
-            <div class="card">
-              <h4>Productivity & Office Tools</h4>
-              <p>Microsoft Office</p>
-            </div>
-          </div>
-        `
-      },
+
+skills: {
+  title: 'Skills',
+  status: 'ABILITY LIST',
+  html: `
+    <div class="skill-category">
+      <h4>Frontend</h4>
+      <div class="skill-chips">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h4>Languages</h4>
+      <div class="skill-chips">
+        <span>Python</span>
+        <span>Java</span>
+        <span>C++</span>
+        <span>VHDL</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h4>Databases</h4>
+      <div class="skill-chips">
+        <span>SQL</span>
+        <span>MongoDB</span>
+        <span>Schema Design</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h4>Tools & Platforms</h4>
+      <div class="skill-chips">
+        <span>GitHub</span>
+        <span>VS Code</span>
+        <span>Apache</span>
+        <span>Fedora Linux</span>
+        <span>Oracle VirtualBox</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h4>Other</h4>
+      <div class="skill-chips">
+        <span>Autopsy</span>
+        <span>Multisim</span>
+        <span>Microsoft Office</span>
+      </div>
+    </div>
+  `
+},
+
       projects: {
   title: 'Projects',
   status: 'MOVE SET',
