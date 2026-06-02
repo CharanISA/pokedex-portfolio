@@ -926,18 +926,37 @@ skills: {
 },
 
 
-      contact: {
-        title: 'Contact',
-        status: 'TRAINER INFO',
-        html: `
-          <div class="links">
-            <a class="link-btn" href="mailto:saragadam.charan@gmail.com">Email Me</a>
-            <a class="link-btn dark" href="https://github.com/CharanISA">GitHub</a>
-            <a class="link-btn dark" href="https://linkedin.com/in/charan-saragadam">LinkedIn</a>
-            <a class="link-btn dark" href="resume.pdf" target="_blank" > Resume </a>
-          </div>
-        `
-      }
+contact: {
+  title: 'Contact',
+  status: 'TRAINER INFO',
+  html: `
+    <div class="contact-card">
+      <h4>Trainer Contact</h4>
+      <p>
+        Open to internships, software development opportunities, UI/UX projects,
+        and collaborations involving AI, data, or fitness technology.
+      </p>
+
+      <div class="contact-grid">
+        <a class="contact-link email" href="mailto:saragadam.charan@gmail.com">
+          Email Me
+        </a>
+
+        <a class="contact-link" href="https://github.com/CharanISA" target="_blank">
+          GitHub
+        </a>
+
+        <a class="contact-link" href="https://linkedin.com/in/charan-saragadam" target="_blank">
+          LinkedIn
+        </a>
+
+        <a class="contact-link" href="resume.pdf" target="_blank">
+          Resume
+        </a>
+      </div>
+    </div>
+  `
+}
     };
 
     const buttons = document.querySelectorAll('.dex-btn');
