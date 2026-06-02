@@ -476,6 +476,23 @@
        background: rgba(255,255,255,0.13);
     }
 
+.project-images {
+  display: flex;
+  gap: 0.45rem;
+  margin: 0.75rem 0;
+}
+
+.project-images img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-images img:hover {
+  transform: scale(1.05);
+}
+
     .card h4 {
       color: white;
       margin-bottom: 0.4rem;
@@ -608,7 +625,54 @@
   }
 }
 
+.project-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
 
+.project-tab {
+  border: none;
+  border-radius: 12px;
+  padding: 0.7rem;
+  background: #1e293b;
+  color: white;
+  font-weight: 900;
+}
+
+.project-tab.active,
+.project-tab:hover {
+  background: linear-gradient(135deg, #ff4fd8, #9333ea);
+}
+
+.project-detail {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 1rem;
+  max-height: 390px;
+  overflow-y: auto;
+}
+
+.project-detail h4 {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-detail p {
+  margin-bottom: 0.8rem;
+}
+
+.project-main-image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid rgba(255,255,255,0.18);
+  margin-bottom: 0.8rem;
+}
 
 
 
@@ -780,73 +844,19 @@
         `
       },
       projects: {
-        title: 'Projects',
-        status: 'MOVE SET',
-        html: `
-          <div class="grid-cards">
+  title: 'Projects',
+  status: 'MOVE SET',
+  html: `
+    <div class="project-tabs">
+      <button class="project-tab active" onclick="showProject('figma')">Fitness UI/UX</button>
+      <button class="project-tab" onclick="showProject('chatbot')">AI Chatbot</button>
+    </div>
 
-<div class="card">
-  <h4>Fintess App UI/UX Design</h4>
-
-<p>
-   Designed the UI/UX for a fitness app focused on workout tracking,
-   clean navigation, and a mobile-first user experience.
-</p>
-
-  <div class="project-images">
-    <img src="images/fitness-sign-in & sign-up.png" alt="Fitness app sign in & sign up screen">
-    <img src="images/fitness-home.png" alt="Fitness app home screen">
-    <img src="images/fitness-profile.png" alt="Fitness app profile screen">
-  </div>
-
-  <div class="tags">
-  <span class="tag">UI/UX</span>
-   <span class="tag">Figma</span>
-  <span class="tag">Mobile Design</span>
-  </div>
-
-  <div class="links">
-   <a class="link-btn" 
-     href="https://www.figma.com/design/iK4vGSArquEc6syzRXHFCg/Fitness-App?node-id=0-1&t=ucq0CfM5IFBASY9C-1" 
-     target="_blank">
-     Open Project
-    </a>
-  </div>
-</div>
+    <div id="projectView"></div>
+  `
+},
 
 
-  <div class="card">
-  <h4>AI Workout Chatbot</h4>
-
-  <p>
-    Collaborated in a 6-person development team to build an AI-powered fitness chatbot integrated 
-    with a vector database for personalized workout retrieval and fitness assistance.
-  </p>
-
-  <p>
-   My role focused on app designing, and coding the chatbot, vecotor sotre, cinfiguration, and safety 
-   part of the app.
-  </p>
-
-  <div class="tags">
-    <span class="tag">AI</span>
-    <span class="tag">Python</span>
-    <span class="tag">Vector Database</span>
-    <span class="tag">Team Project</span>
-  </div>
-
-  <div class="links">
-    <a class="link-btn dark"
-       href="https://github.com/trinityav/SeniorProject"
-       target="_blank">
-       View GitHub
-    </a>
-  </div>
-</div>
-        `
-      },
-
-      
       contact: {
         title: 'Contact',
         status: 'TRAINER INFO',
@@ -874,6 +884,9 @@
       void content.offsetWidth;
       content.classList.add('content');
       content.innerHTML = section.html;
+      if (sectionName === 'projects') {
+      showProject('figma');
+      }
 
       buttons.forEach(button => {
         button.classList.toggle('active', button.dataset.section === sectionName);
@@ -902,6 +915,63 @@
         loadSection(keyMap[event.key]);
       }
     });
+
+function showProject(project) {
+  const projectView = document.getElementById('projectView');
+  const tabs = document.querySelectorAll('.project-tab');
+
+  tabs.forEach(tab => tab.classList.remove('active'));
+
+  if (project === 'figma') {
+    tabs[0].classList.add('active');
+    projectView.innerHTML = `
+      <div class="project-detail">
+        <h4>Fitness App UI/UX Design</h4>
+        <img class="project-main-image" src="images/fitness-home.png" alt="Fitness App Design">
+
+        <p>
+          Designed a mobile fitness app focused on workout tracking,
+          clean navigation, and a simple user experience.
+        </p>
+
+        <div class="tags">
+          <span class="tag">UI/UX</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Mobile Design</span>
+        </div>
+
+        <a class="link-btn" href="https://www.figma.com/design/iK4vGSArquEc6syzRXHFCg/Fitness-App?node-id=0-1&t=kiwRJdYMUKDlycDK-1" target="_blank">View Figma</a>
+      </div>
+    `;
+  }
+
+  if (project === 'chatbot') {
+    tabs[1].classList.add('active');
+    projectView.innerHTML = `
+      <div class="project-detail">
+        <h4>AI Workout Chatbot</h4>
+
+        <p>
+          Collaborated in a 6-person team to build an AI-powered fitness chatbot
+          with vector database retrieval for personalized workout recommendations.
+        </p>
+
+        <p>
+          My role focused on app design and coding chatbot.py, vector-store.py, config.py, and safety.py.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">AI</span>
+          <span class="tag">Vector Database</span>
+          <span class="tag">Team Project</span>
+        </div>
+
+        <a class="link-btn dark" href="https://github.com/trinityav/SeniorProject" target="_blank">View GitHub</a>
+      </div>
+    `;
+  }
+}
 
     loadSection('profile');
   </script>
