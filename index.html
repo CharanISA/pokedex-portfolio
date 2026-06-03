@@ -96,12 +96,18 @@
       background: radial-gradient(circle at 35% 28%, #fff, #7dd3fc 32%, #0284c7 72%);
       border: 5px solid #e0f2fe;
       box-shadow: 0 0 30px rgba(56,189,248,0.95);
-      animation: glow 2s infinite ease-in-out;
+      animation: glow 3s infinite ease-in-out infinite;
     }
 
     @keyframes glow {
-      0%, 100% { box-shadow: 0 0 18px rgba(56,189,248,0.65); }
-      50% { box-shadow: 0 0 38px rgba(56,189,248,1); }
+      0%, 100% {
+         box-shadow: 
+         0 0 20px rgba(56,189,248,0.75); 
+        }
+      50% { 
+        box-shadow: 
+        0 0 28px rgba(56,189,248,0.95); 
+      }
     }
 
     .dot {
@@ -816,14 +822,14 @@
         <div class="dot green"></div>
       </div>
       <div class="brand">
-        <h1>POKÉDEX PORTFOLIO</h1>
+        <h1>TRAINERDEX v1.0</h1>
       </div>
     </div>
 
     <section class="main-area">
       <div class="left-shell">
         <div class="profile-screen">
-          <span class="entry-pill">ENTRY #0658: Greninja</span>
+          <span class="entry-pill">ENTRY #2003</span>
 
           <div class="avatar-stage">
             <div class="avatar">
@@ -833,7 +839,7 @@
 
           <div class="identity">
             <h2>Charan Sai Saragadam</h2>
-            <p>Data Analyst / Developer / Designer</p>
+            <p>Software Developer | UI/UX Designer | Data Analyst</p>
             <div class="types">
               <span class="type ai">AI</span>
               <span class="type designer">Designer</span>
@@ -867,8 +873,7 @@
   <script>
     const sections = {
       profile: {
-        title: 'Profile',
-        status: 'ENTRY DATA',
+        title: 'Trainer Data',
         html: `
   <p>
     Aspiring Software Developer with experience in software engineering,
@@ -915,8 +920,7 @@
 
 
 skills: {
-  title: 'Skills',
-  status: 'ABILITY LIST',
+  title: 'ABILITY DATABASE',
   html: `
     <div class="skill-category">
       <h4>Frontend</h4>
@@ -969,8 +973,7 @@ skills: {
 },
 
       projects: {
-  title: 'Projects',
-  status: 'MOVE SET',
+  title: 'MOVE SET',
   html: `
     <div class="project-tabs">
       <button class="project-tab active" onclick="showProject('figma')">Fitness UI/UX</button>
@@ -983,8 +986,7 @@ skills: {
 
 
 contact: {
-  title: 'Contact',
-  status: 'TRAINER INFO',
+  title: 'COMMUNICATIONS',
   html: `
     <div class="contact-card">
       <h4>Trainer Contact</h4>
