@@ -359,10 +359,16 @@
       padding: 1.15rem;
       min-height: 0;
       overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
       padding-right: 0.75rem;
       box-shadow: inset 0 0 28px rgba(0,0,0,0.45);
 
       animation: screenBoot 1.4s ease-out forwards;
+    }
+
+    .info-screen::-webkit-scrollbar {
+      display: none;
     }
 
     .screen-header {
